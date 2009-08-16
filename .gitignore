@@ -1,0 +1,9 @@
+/db/*.sqlite3
+/db/schema.rb
+/tmp/*
+/config/database.yml
+/log/*.log
+*.eprj
+TODO.txt
+log
+.gitignore
