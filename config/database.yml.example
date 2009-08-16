@@ -1,0 +1,14 @@
+mysql: &using
+ adapter: mysql
+ host: localhost 
+ password:
+ database: twork_development
+ username: root
+ encoding: utf8
+development:
+ <<: *using
+production:
+ database: twork_production
+ <<: *using
+test:
+ <<: *using
