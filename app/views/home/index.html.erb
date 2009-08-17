@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>欢迎登陆</title>
+    
+   <link rel="stylesheet" type="text/css" href="stylesheets/ext2-all.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/ext-patch.css" />    
+    <link href="resources/css/main.css"   type="text/css" rel="stylesheet"/>
+    <link href="resources/themes/xtheme-vistablue/css/xtheme-vistablue.css" rel="stylesheet" type="text/css" id="theme" />
+    </head>
+
+  <body scroll="no">
+    <div id="loading-mask" style=""></div>
+    <div id="loading">
+        <div class="loading-indicator"><img src="images/icon_version_32.png" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>SLiverCRM V 0.9.05<br/><span id="loading-msg">正在加载图片和风格...</span></div>
+    </div>
+
+    <div id="x-desktop">
+      <div id="ux-shortcuts"></div>
+    </div>
+    <div id="ux-taskbar">
+      <div id="ux-taskbar-start"></div>
+      <div id="ux-taskbar-panel-wrap">
+        <div id="ux-quickstart-panel"></div>
+        <div id="ux-taskbuttons-panel"></div>
+        <div id="ux-taskclock-panel"></div>
+
+      </div>
+      <div class="x-clear"></div>
+    </div>
+    
+
+      <script type="text/javascript">document.getElementById('loading-msg').innerHTML = '加载核心文件...';</script>
+      <script type="text/javascript"  src="javascripts/ext/ext-base.js"></script>
+      <script type="text/javascript"  src="javascripts/ext2/ext-all.js"></script>
+      <script type="text/javascript">document.getElementById('loading-msg').innerHTML = '加载系统模块...';</script>
+
+      <script type="text/javascript"  src="system/qoffice.js"></script>
+      <script type="text/javascript"  src="system/ux.js"></script>
+      <script type="text/javascript"  src="system/misc.js"></script>
+      <script type="text/javascript"  src="system/overide.js"></script>
+      <script type="text/javascript"  src="system/util.js"></script>
+      <script type="text/javascript"  src="system/config.js"></script>
+      <script type="text/javascript">document.getElementById('loading-msg').innerHTML = '加载各个组件...';</script>
+  
+      <script language="javascript">
+        /**/
+var Sliver = new Ext.app.App({
+    init : function() {
+        Ext.QuickTips.init();
+    },
+    getModules : function() {
+    	  return [
+                new Sliver.ProductionManager(),new Sliver.WebForum()]
+        return [
+                
+                new Sliver.ChanceOwner(),
+                
+                new Sliver.ChanceManager(),
+                
+                new Sliver.TaskManager(),
+                
+                new Sliver.TaskCreater(),
+                
+                new Sliver.Preferences(),
+                
+                new Sliver.ShowDesktop(),
+                
+                new Sliver.IMWindow(),
+                
+                new Sliver.ProductionManager(),
+                
+                new Sliver.ProductionViewer(),
+                
+                new Sliver.OrderAuditManager(),
+                
+                new Sliver.OrderManager(),
+                
+                new Sliver.CustomerManager(),
+                
+                new Sliver.Documents(),
+                
+                new Sliver.OrderCashedManager(),
+                
+                new Sliver.ProductionStorage(),
+                
+                new Sliver.CustomerOwner(),
+                
+                new Sliver.ComplainManager(),
+                
+                new Sliver.ServeManager(),
+                
+                new Sliver.WebForum()
+                
+        ];
+    },
+    getStartConfig : function(){
+        
+        
+    },
+    getDesktopConfig : function() {
+        var o = {
+            'success' : true,
+            'config' : {
+                'autorun' : ["chance-owner","chance-manager","task-manager","task-creater","system-preferences"],
+                'contextmenu' :["system-preferences"],
+                'quickstart' : ["system-preferences","task-creater","system-showdesktop","chance-owner","task-manager","chance-manager","complain-manager","production-storage","system-documents","customer-manager","order-manager","system-im","web-forum","production-viewer","order-audit-manager","production-manager"],
+                'shortcuts' : ["user-manager","calendar-owner","user-customer","system-documents","system-showdesktop","system-im","order-cashed-manager","production-storage","customer-owner","task-manager","chance-manager","chance-owner","order-manager","system-preferences","task-creater","customer-manager","web-forum","serve-manager","complain-manager","production-manager","production-viewer","order-audit-manager"],
+                'startmenu' : [
+                        "chance-owner","chance-manager","task-manager","task-creater","system-im","production-manager","production-viewer","order-audit-manager","order-manager","customer-manager","system-documents","order-cashed-manager","production-storage","customer-owner","complain-manager","serve-manager","web-forum"          
+                ],
+                'styles' : {
+                    'backgroundcolor' : '800080',
+                    'fontcolor' : 'FFFFFF',
+                    'theme' : {
+                        'themeID' : '1',
+                        'themeName' : 'Vista Blue',
+                        'themePath' : 'resources/themes/xtheme-vistablue/css/xtheme-vistablue.css'
+                    },          
+                    'transparency' : '65',
+                    'wallpaper' : {
+                        'wallpaperID' : '6',
+                        'wallpaperName' : 'Fields of Peace',
+                        'wallpaperPath' : 'resources/wallpapers/fields-of-peace.jpg'
+                    },
+                    'wallpaperposition' : 'tile'
+                }
+            }
+        };
+        if (o.success) {
+            this.initDesktopConfig(o.config);
+            return o;
+        } else {
+            Sliver.getDesktop().msg({title:'错误',iconCls:'icon-error',html:'加载用户配置时出错，请重新登陆或联系系统管理员'});
+        }
+    }
+});
+
+      </script>
+      <script type="text/javascript"  src="system/modules/ProductionManager.js"></script>
+      <script type="text/javascript"  src="system/modules/WebForum.js"></script>
+	    <script type="text/javascript">
+	      setTimeout(function(){
+	          Ext.get('loading').remove();
+	          Ext.get('loading-mask').fadeOut({remove:true});
+	      }, 250);
+	    </script>
+  </body>
+</html>
